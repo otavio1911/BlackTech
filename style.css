@@ -10,154 +10,394 @@ html {
 
 body {
     font-family: Arial, sans-serif;
-    background: #080808;
-    color: white;
+    background: #050505;
+    color: #fff;
+    overflow-x: hidden;
 }
+
+/* =========================
+   HEADER
+========================= */
 
 header {
     width: 100%;
-    padding: 25px 8%;
+    padding: 22px 8%;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
-    border-bottom: 1px solid #222;
+    background: rgba(5, 5, 5, 0.85);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid #1f1f1f;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 header h1 {
-    font-size: 25px;
-    letter-spacing: 3px;
+    font-size: 26px;
+    letter-spacing: 4px;
+
+    background: linear-gradient(
+        90deg,
+        #fff,
+        #888
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
+
+/* =========================
+   MENU
+========================= */
 
 nav {
     display: flex;
-    gap: 25px;
+    gap: 30px;
 }
 
 nav a {
-    color: white;
+    color: #aaa;
     text-decoration: none;
+
+    font-size: 15px;
+    font-weight: bold;
+
+    position: relative;
+
+    transition: 0.3s;
+}
+
+nav a::after {
+    content: "";
+
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+
+    width: 0;
+    height: 2px;
+
+    background: #fff;
+
+    transition: 0.3s;
 }
 
 nav a:hover {
-    color: #888;
+    color: #fff;
 }
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* =========================
+   SEÇÕES
+========================= */
 
 section {
-    padding: 100px 8%;
+    padding: 110px 8%;
 }
 
+/* =========================
+   INÍCIO
+========================= */
+
 #inicio {
-    min-height: 80vh;
+    min-height: 90vh;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
+    position: relative;
+
     background:
         radial-gradient(
-            circle at center,
-            #222 0%,
-            #080808 60%
+            circle at 50% 45%,
+            #252525 0%,
+            #0b0b0b 35%,
+            #050505 70%
         );
 }
 
+#inicio::before {
+    content: "";
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.03);
+
+    filter: blur(100px);
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+}
+
 #inicio h2 {
-    font-size: 60px;
-    max-width: 700px;
+    font-size: clamp(45px, 7vw, 80px);
+
+    max-width: 850px;
+
+    line-height: 1.05;
+
+    letter-spacing: -2px;
+
+    position: relative;
+
+    animation: aparecer 1s ease;
 }
 
 #inicio p {
-    margin-top: 20px;
+    margin-top: 25px;
+
+    max-width: 650px;
+
     font-size: 20px;
-    color: #aaa;
+
+    line-height: 1.6;
+
+    color: #999;
+
+    position: relative;
+
+    animation: aparecer 1.4s ease;
 }
 
+/* =========================
+   BOTÃO
+========================= */
+
 button {
-    margin-top: 30px;
+    margin-top: 35px;
 
     width: 220px;
-    padding: 15px;
+    padding: 16px;
 
-    border: none;
-    border-radius: 8px;
+    border: 1px solid #444;
+    border-radius: 10px;
 
-    background: white;
-    color: black;
+    background: #fff;
+    color: #000;
 
     font-size: 16px;
     font-weight: bold;
 
     cursor: pointer;
+
+    transition: 0.3s;
+
+    position: relative;
+    z-index: 2;
 }
 
 button:hover {
-    transform: scale(1.05);
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 35px rgba(255, 255, 255, 0.15);
+
+    background: #eaeaea;
 }
+
+/* =========================
+   SERVIÇOS
+========================= */
 
 #servicos {
     text-align: center;
+
+    background: #080808;
 }
 
 #servicos > div {
     display: flex;
     gap: 25px;
 
-    margin-top: 50px;
+    margin-top: 55px;
 }
 
 article {
     flex: 1;
 
-    padding: 35px;
+    padding: 40px 30px;
 
-    background: #111;
-    border: 1px solid #222;
+    background:
+        linear-gradient(
+            145deg,
+            #151515,
+            #0d0d0d
+        );
 
-    border-radius: 15px;
+    border: 1px solid #242424;
+
+    border-radius: 18px;
+
+    transition: 0.35s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+article::before {
+    content: "";
+
+    position: absolute;
+
+    width: 150px;
+    height: 150px;
+
+    background: rgba(255, 255, 255, 0.04);
+
+    border-radius: 50%;
+
+    filter: blur(50px);
+
+    top: -70px;
+    right: -70px;
+}
+
+article:hover {
+    transform: translateY(-10px);
+
+    border-color: #555;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+article h3 {
+    font-size: 22px;
+
+    margin-bottom: 5px;
 }
 
 article p {
     margin-top: 15px;
-    color: #aaa;
+
+    color: #999;
+
+    line-height: 1.6;
 }
 
+/* =========================
+   SOBRE
+========================= */
+
 #sobre {
-    background: #101010;
+    background:
+        linear-gradient(
+            135deg,
+            #101010,
+            #080808
+        );
+
+    border-top: 1px solid #181818;
+    border-bottom: 1px solid #181818;
 }
+
+/* =========================
+   CONTATO
+========================= */
 
 #contato {
     text-align: center;
+
+    background: #060606;
 }
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
-    padding: 30px;
+    padding: 35px;
+
     text-align: center;
 
-    color: #666;
+    color: #555;
 
-    border-top: 1px solid #222;
+    background: #030303;
+
+    border-top: 1px solid #181818;
+
+    font-size: 14px;
 }
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* =========================
+   CELULAR
+========================= */
 
 @media (max-width: 700px) {
 
     header {
         flex-direction: column;
         gap: 20px;
+
+        padding: 20px;
     }
 
     nav {
+        gap: 18px;
+
         flex-wrap: wrap;
         justify-content: center;
     }
 
+    section {
+        padding: 80px 6%;
+    }
+
+    #inicio {
+        min-height: 85vh;
+    }
+
     #inicio h2 {
-        font-size: 40px;
+        font-size: 45px;
+    }
+
+    #inicio p {
+        font-size: 17px;
     }
 
     #servicos > div {
         flex-direction: column;
+    }
+
+    article {
+        padding: 30px 25px;
     }
 
 }
