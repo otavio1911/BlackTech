@@ -1,0 +1,163 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080808;
+    color: white;
+}
+
+header {
+    width: 100%;
+    padding: 25px 8%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-bottom: 1px solid #222;
+}
+
+header h1 {
+    font-size: 25px;
+    letter-spacing: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: #888;
+}
+
+section {
+    padding: 100px 8%;
+}
+
+#inicio {
+    min-height: 80vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #222 0%,
+            #080808 60%
+        );
+}
+
+#inicio h2 {
+    font-size: 60px;
+    max-width: 700px;
+}
+
+#inicio p {
+    margin-top: 20px;
+    font-size: 20px;
+    color: #aaa;
+}
+
+button {
+    margin-top: 30px;
+
+    width: 220px;
+    padding: 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: white;
+    color: black;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+#servicos {
+    text-align: center;
+}
+
+#servicos > div {
+    display: flex;
+    gap: 25px;
+
+    margin-top: 50px;
+}
+
+article {
+    flex: 1;
+
+    padding: 35px;
+
+    background: #111;
+    border: 1px solid #222;
+
+    border-radius: 15px;
+}
+
+article p {
+    margin-top: 15px;
+    color: #aaa;
+}
+
+#sobre {
+    background: #101010;
+}
+
+#contato {
+    text-align: center;
+}
+
+footer {
+    padding: 30px;
+    text-align: center;
+
+    color: #666;
+
+    border-top: 1px solid #222;
+}
+
+@media (max-width: 700px) {
+
+    header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #inicio h2 {
+        font-size: 40px;
+    }
+
+    #servicos > div {
+        flex-direction: column;
+    }
+
+}
